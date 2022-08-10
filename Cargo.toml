@@ -106,7 +106,7 @@ description = "The bottom layer is scanned by capturing packets"
 documentation = "https://docs.rs/e-libscanner"
 homepage = "https://github.com/EternalNight996"
 repository = "https://github.com/EternalNight996/e-libscanner"
-include = ["src/", "Cargo.toml", "*-LICENSE"]
+include = ["src/", "Cargo.toml", "*-LICENSE", "*.md"]
 keywords = ["net", "scan", "async", "api", "lib"]
 categories = ["network-programmin", "asynchronous", "os", "command-line-utilities"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
