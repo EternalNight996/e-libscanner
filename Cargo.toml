@@ -10,7 +10,7 @@ service = ["native-tls", "sync"]
 os = []
 sync = []
 full = ["async", "sync", "os", "service"]
-default = ["full"]
+default = ["sync"]
 
 [dependencies]
 socket2 = { version = "0.4.4", features = ["all"] }
@@ -96,7 +96,7 @@ rustdoc-args = ["--cfg", "doc_cfg"]
 
 [package]
 name = "e-libscanner"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Eternal <EternalNight996@gmail.com, EternalNightYeah2@yeah.net>"]
 license-file = "GNU-LICENSE"
 edition = "2021"
@@ -108,5 +108,5 @@ homepage = "https://github.com/EternalNight996"
 repository = "https://github.com/EternalNight996/e-libscanner"
 include = ["src/", "Cargo.toml", "*-LICENSE", "*.md"]
 keywords = ["net", "scan", "async", "api", "lib"]
-categories = ["network-programmin", "asynchronous", "os", "command-line-utilities"]
+categories = ["network-programming", "asynchronous", "os", "command-line-utilities"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
