@@ -4,6 +4,7 @@ use pnet_packet::tcp::TcpPacket;
 use pnet_packet::udp::UdpPacket;
 use pnet_packet::Packet;
 
+#[doc(hidden)]
 pub trait EndPoints {
     fn get_source(&self) -> String;
     fn get_destination(&self) -> String;

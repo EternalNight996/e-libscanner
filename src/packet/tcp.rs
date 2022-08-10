@@ -1,6 +1,6 @@
 use std::net::IpAddr;
 use pnet_packet::tcp::{MutableTcpPacket, TcpOption, TcpFlags};
-
+/// Build tcp packet
 pub fn build_tcp_packet(tcp_packet:&mut MutableTcpPacket, src_ip: IpAddr, src_port:u16, dst_ip: IpAddr, dst_port:u16) {
     tcp_packet.set_source(src_port);
     tcp_packet.set_destination(dst_port);

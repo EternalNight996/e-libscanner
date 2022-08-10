@@ -10,7 +10,7 @@ service = ["native-tls", "sync"]
 os = []
 sync = []
 full = ["async", "sync", "os", "service"]
-default = ["sync"]
+default = ["full"]
 
 [dependencies]
 socket2 = { version = "0.4.4", features = ["all"] }
@@ -29,9 +29,10 @@ serde = { version = "1.0", features = ["derive"] }
 serde_derive = "1.0.140"
 structopt = "0.3.26"
 ipnet = "2.5"
-e-utils = { version = "^0.1", path = "libs/e-utils", features = [
+e-utils = { version = "0.1.0", features = [
     "random",
-    "sys_utils",
+    "dns",
+    "traceroute"
 ], default-features = false }
 
 [target.'cfg(windows)'.dependencies]
@@ -87,12 +88,25 @@ name = "tracert"
 path = "examples/tracert.rs"
 required-features = []
 
+[package.metadata.docs.rs]
+# To build locally:
+# RUSTDOCFLAGS="--cfg doc_cfg" cargo +nightly doc --all-features --no-deps --open
+all-features = true
+rustdoc-args = ["--cfg", "doc_cfg"]
+
 [package]
 name = "e-libscanner"
 version = "0.1.0"
-authors = ["Eternal <EternalNightYeah2@yeah.net>"]
+authors = ["Eternal <EternalNight996@gmail.com, EternalNightYeah2@yeah.net>"]
 license-file = "GNU-LICENSE"
-repository = ""
 edition = "2021"
+readme = "README.md"
 rust-version = "1.62.0"
+description = "The bottom layer is scanned by capturing packets"
+documentation = "https://docs.rs/e-libscanner"
+homepage = "https://github.com/EternalNight996"
+repository = "https://github.com/EternalNight996/e-libscanner"
+include = ["src/", "Cargo.toml", "*-LICENSE"]
+keywords = ["net", "scan", "async", "api", "lib"]
+categories = ["network-programmin", "asynchronous", "os", "command-line-utilities"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html

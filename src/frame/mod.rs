@@ -1,3 +1,4 @@
+#[doc(hidden)]
 pub mod result;
 use pnet_datalink::MacAddr;
 use std::collections::HashSet;
@@ -23,6 +24,7 @@ pub enum ScanType {
     ///
     /// Send TCP packets with SYN flag to a specific port and check response.
     TcpPingScan,
+    /// Send udp packets;
     UdpPingScan,
 }
 

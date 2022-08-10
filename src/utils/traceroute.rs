@@ -9,10 +9,12 @@ use std::{
     time::Duration,
 };
 
-use e_utils::sys_utils::traceroute::Traceroute;
+use e_utils::traceroute::Traceroute;
 
+/// Traceroute reuslt model
 #[derive(Clone, Debug)]
 pub struct TracertQueryResult {
+    #[doc(hidden)]
     pub id: u8,
     /// Round-Trip Time
     pub rtt: Duration,
@@ -30,6 +32,7 @@ impl fmt::Display for TracertQueryResult {
         )
     }
 }
+/// Traceroute model
 #[derive(Debug)]
 pub struct Tracert {
     iface_ip: Option<IpAddr>,
@@ -38,6 +41,7 @@ pub struct Tracert {
     receiver: Arc<Mutex<Receiver<TracertQueryResult>>>,
 }
 impl Tracert {
+    /// targets; iface_ip: network interface ip;  
     pub fn new(target: Vec<String>, iface_ip: Option<IpAddr>) -> Self {
         let (tx, rx) = mpsc::channel();
         Tracert {
@@ -47,12 +51,15 @@ impl Tracert {
             receiver: Arc::new(Mutex::new(rx)),
         }
     }
+    /// Get target length
     pub fn len(&self) -> usize {
         self.target.len()
     }
+    /// Get receiver to get trace route of result
     pub fn get_progress_receiver(&self) -> Arc<Mutex<Receiver<TracertQueryResult>>> {
         self.receiver.clone()
     }
+    /// Running scan to trace route
     pub fn scan(&self, pstop: Option<Arc<Mutex<bool>>>) -> Vec<TracertQueryResult> {
         let mut handles = vec![];
         let mut results = vec![];

@@ -2,10 +2,10 @@ use std::net::Ipv6Addr;
 use pnet_packet::ip::{IpNextHeaderProtocol, IpNextHeaderProtocols};
 use pnet_packet::ipv6::{MutableIpv6Packet};
 
-#[allow(dead_code)]
+/// Ipv6 header length
 pub const IPV6_HEADER_LEN: usize = 40;
 
-#[allow(dead_code)]
+/// Build ipv6 packet
 pub fn build_ipv6_packet(ipv6_packet: &mut MutableIpv6Packet, src_ip: Ipv6Addr, dst_ip: Ipv6Addr, next_protocol: IpNextHeaderProtocol) {
     ipv6_packet.set_source(src_ip);
     ipv6_packet.set_destination(dst_ip);

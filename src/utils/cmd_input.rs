@@ -10,7 +10,7 @@ use crate::{
     interface,
     traceroute::Tracert,
 };
-use e_utils::sys_utils::dns;
+use e_utils::dns;
 use ipnet::{self, IpNet};
 use serde_derive::Deserialize;
 use std::{
@@ -25,6 +25,7 @@ use super::dns::{DnsResult, DnsResultType, DnsResults};
 
 arg_enum! {
     /// Script
+    #[doc(hidden)]
     #[derive(Deserialize, Debug, StructOpt, Clone, PartialEq, Copy)]
     pub enum ScriptsRequired {
         None,
@@ -34,6 +35,7 @@ arg_enum! {
 }
 arg_enum! {
     /// scan type
+    #[doc(hidden)]
     #[derive(Deserialize, Debug, StructOpt, Clone, PartialEq, Copy)]
     pub enum ScanModelType {
         Sync,
@@ -47,6 +49,7 @@ arg_enum! {
 }
 arg_enum! {
     /// scan type
+    #[doc(hidden)]
     #[derive(Deserialize, Debug, StructOpt, Clone, PartialEq, Copy)]
     pub enum ScanOrderType {
         None,

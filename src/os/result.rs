@@ -1,6 +1,8 @@
 use super::frame::{ProbeType, TcpOptionKind};
 use std::{fmt, net::IpAddr};
 
+/// Icmp echo result model
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub struct IcmpEchoResult {
     pub icmp_echo_reply: bool,
@@ -22,6 +24,8 @@ impl IcmpEchoResult {
     }
 }
 
+/// Icmp timestamp result model
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub struct IcmpTimestampResult {
     pub icmp_timestamp_reply: bool,
@@ -39,6 +43,8 @@ impl IcmpTimestampResult {
     }
 }
 
+/// Icmp address mask result
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub struct IcmpAddressMaskResult {
     pub icmp_address_mask_reply: bool,
@@ -56,6 +62,8 @@ impl IcmpAddressMaskResult {
     }
 }
 
+/// Icmp information result
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub struct IcmpInformationResult {
     pub icmp_information_reply: bool,
@@ -73,6 +81,8 @@ impl IcmpInformationResult {
     }
 }
 
+/// Icmp unreachable ip result
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub struct IcmpUnreachableIpResult {
     pub icmp_unreachable_reply: bool,
@@ -96,6 +106,8 @@ impl IcmpUnreachableIpResult {
     }
 }
 
+/// Icmp unreachable original data result
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct IcmpUnreachableOriginalDataResult {
     pub udp_checksum: u16,
@@ -108,6 +120,7 @@ pub struct IcmpUnreachableOriginalDataResult {
     pub ip_ttl: u8,
 }
 
+#[doc(hidden)]
 #[derive(Clone, Debug)]
 pub struct TcpHeaderResult {
     pub tcp_window_size: u16,
@@ -121,6 +134,8 @@ impl TcpHeaderResult {
         }
     }
 }
+
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub struct TcpSynAckResult {
     pub syn_ack_response: bool,
@@ -140,6 +155,7 @@ impl TcpSynAckResult {
     }
 }
 
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub struct TcpRstAckResult {
     pub rst_ack_response: bool,
@@ -161,6 +177,7 @@ impl TcpRstAckResult {
     }
 }
 
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub struct TcpEcnResult {
     pub syn_ack_ece_response: bool,
@@ -182,6 +199,7 @@ impl TcpEcnResult {
     }
 }
 
+#[doc(hidden)]
 #[derive(Clone, Debug)]
 pub struct ProbeResult {
     pub ip_addr: IpAddr,
@@ -317,6 +335,8 @@ impl ProbeResult {
     }
 }
 
+/// Probe status model
+#[doc(hidden)]
 #[derive(Clone, Copy, Debug)]
 pub enum ProbeStatus {
     Ready,

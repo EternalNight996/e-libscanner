@@ -97,7 +97,7 @@ pub fn get_local_ipaddr() -> Result<IpAddr, String> {
     }
 }
 
-#[allow(dead_code)]
+/// Get interface index by ip
 pub fn get_interface_index_by_ip(ip_addr: IpAddr) -> Option<u32> {
     for iface in pnet_datalink::interfaces() {
         for ip in iface.ips {
@@ -109,6 +109,7 @@ pub fn get_interface_index_by_ip(ip_addr: IpAddr) -> Option<u32> {
     return None;
 }
 
+/// Get default gateway mac address on windows
 #[cfg(target_os = "windows")]
 pub fn get_default_gateway_macaddr() -> [u8; 6] {
     match get_default_gateway() {
@@ -117,6 +118,7 @@ pub fn get_default_gateway_macaddr() -> [u8; 6] {
     }
 }
 
+/// Get default gateway mac address on not windows
 #[cfg(not(target_os = "windows"))]
 pub fn get_default_gateway_macaddr() -> [u8; 6] {
     MacAddr::zero().octets()

@@ -1,9 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "Disabled",
-    "files.associations": {
-        "windows.h": "c",
-        "psapi.h": "c",
-        "winuser.h": "c",
-        "stdio.h": "c"
-    }
-}

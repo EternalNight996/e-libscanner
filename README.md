@@ -10,7 +10,7 @@
 + [x] 平台
     - [x] windows[10]
     - [ ] linux[ubuntu、kali]
-+ [x] 功能
++ [x] 扫描功能
     - [x] 指纹扫描
     - [x] 异步扫描
     - [x] 同步扫描
@@ -28,15 +28,15 @@
 - default = ["sync"]
 
 # 📖 示例
-[异步主机扫描](examples/async_host_scan.rs)
-[异步端口扫描](examples/async_port_scan.rs)
-[主机扫描](examples/host_scan.rs)
-[端口扫描](examples/port_scan.rs)
-[指纹扫描](examples/os.rs)
-[服务扫描扫描](examples/service_detection.rs)
-[DNS解析](examples/dns.rs)
-[路由跟踪](examples/tracert.rs)
-[命令行API示例](examples/cmd_input.rs)
+- [异步主机扫描](examples/async_host_scan.rs)
+- [异步端口扫描](examples/async_port_scan.rs)
+- [主机扫描](examples/host_scan.rs)
+- [端口扫描](examples/port_scan.rs)
+- [指纹扫描](examples/os.rs)
+- [服务扫描扫描](examples/service_detection.rs)
+- [DNS解析](examples/dns.rs)
+- [路由跟踪](examples/tracert.rs)
+- [命令行API示例](examples/cmd_input.rs)
 ##### `命令行示例` 
 ```
 e_libscanner -i 192.168.1.1-10 www.baidu.com --model Sync --scan Icmp --no-gui -- -AS

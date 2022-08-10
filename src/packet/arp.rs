@@ -3,10 +3,10 @@ use pnet_datalink::MacAddr;
 use pnet_packet::ethernet::EtherTypes;
 use pnet_packet::arp::{MutableArpPacket, ArpHardwareTypes, ArpOperations};
 
-#[allow(dead_code)]
+/// ARP HEADER LENGTH
 pub const ARP_HEADER_LEN: usize = 28;
 
-#[allow(dead_code)]
+/// Build arp packet
 pub fn build_arp_packet(arp_packet:&mut MutableArpPacket, dst_mac: MacAddr, src_ip: Ipv4Addr, dst_ip: Ipv4Addr) {
     arp_packet.set_hardware_type(ArpHardwareTypes::Ethernet);
     arp_packet.set_protocol_type(EtherTypes::Ipv4);
