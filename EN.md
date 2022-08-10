@@ -28,15 +28,19 @@ This is a scan integration interface. The bottom layer is scanned by capturing p
 - default = ["sync"]
 
 # 📖 Example
-[Async_host_scan](examples/async_host_scan.rs)
-[Async_port_scan](examples/async_port_scan.rs)
-[Host_scan](examples/host_scan.rs)
-[Port_scan](examples/port_scan.rs)
-[Fingerprint_scan](examples/os.rs)
-[Service_detection](examples/service_detection.rs)
-[DNS parse](examples/dns.rs)
-[Traceroute](examples/tracert.rs)
-[Command api](examples/cmd_input.rs)
+```toml
+[dependencies]
+e-libscanner = { version = "^0.1.1", features = ["full"] }
+```
+- [Async_host_scan](examples/async_host_scan.rs)
+- [Async_port_scan](examples/async_port_scan.rs)
+- [Host_scan](examples/host_scan.rs)
+- [Port_scan](examples/port_scan.rs)
+- [Fingerprint_scan](examples/os.rs)
+- [Service_detection](examples/service_detection.rs)
+- [DNS parse](examples/dns.rs)
+- [Traceroute](examples/tracert.rs)
+- [Command api](examples/cmd_input.rs)
 ##### `command example` 
 ```
 e_libscanner -i 192.168.1.1-10 www.baidu.com --model Sync --scan Icmp --no-gui -- -AS
