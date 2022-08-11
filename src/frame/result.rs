@@ -110,14 +110,14 @@ impl ScanResult {
 
 #[derive(Clone, Debug)]
 pub(crate) struct ScanResults {
-    pub result: ScanResult,
-    pub ip_set: HashSet<IpAddr>,
-    pub socket_set: HashSet<SocketAddr>,
+    pub(crate) result: ScanResult,
+    pub(crate) ip_set: HashSet<IpAddr>,
+    pub(crate) socket_set: HashSet<SocketAddr>,
 }
 
 impl ScanResults {
     /// 0x1 host scan 0x2 port scan
-    pub fn new() -> ScanResults {
+    pub(crate) fn new() -> ScanResults {
         ScanResults {
             result: ScanResult::new(),
             ip_set: HashSet::new(),

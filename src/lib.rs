@@ -49,27 +49,55 @@
 #![doc(
     html_logo_url = "https://www.rust-lang.org/logos/rust-logo-128x128-blk.png",
     html_favicon_url = "https://www.rust-lang.org/favicon.ico",
-    html_root_url = "https://github.com/EternalNight996"
+    html_root_url = "https://github.com/EternalNight996",
+    issue_tracker_base_url = "https://github.com/EternalNight996/e-libscanner/issues/"
 )]
-#![deny(missing_docs)]
-#![deny(missing_debug_implementations)]
+#![warn(
+    missing_debug_implementations,
+    missing_doc_code_examples,
+    missing_docs,
+    rust_2018_idioms,
+    unreachable_pub,
+    bad_style,
+    const_err,
+    dead_code,
+    improper_ctypes,
+    non_shorthand_field_patterns,
+    no_mangle_generic_items,
+    overflowing_literals,
+    path_statements,
+    patterns_in_fns_without_body,
+    private_in_public,
+    unconditional_recursion,
+    unused,
+    unused_allocation,
+    unused_comparisons,
+    unused_parens,
+    while_true
+)]
 #![doc(test(attr(allow(unused_variables), deny(warnings))))]
-#![cfg_attr(doc_cfg, feature(doc_cfg))]
+// #![cfg_attr(doc_cfg, feature(doc_cfg))]
+// Rustc lints.
+#![deny(missing_docs, unused_imports)]
 
 /// Async scan api
 #[cfg(feature = "async")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "async")))]
 pub mod async_scan;
 
 /// Sync scan api
 #[cfg(feature = "sync")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "sync")))]
 pub mod sync_scan;
 
 /// Service scan api
 #[cfg(feature = "service")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "service")))]
 pub mod service;
 
 /// Os scan api
 #[cfg(feature = "os")]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "os")))]
 pub mod os;
 
 /// Static data model

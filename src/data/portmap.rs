@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-pub fn get_tcp_portmap() -> HashMap<u16, &'static str> {
+pub(crate) fn get_tcp_portmap() -> HashMap<u16, &'static str> {
     let mut tcp_portmap:HashMap<u16, &'static str> = HashMap::new();
     tcp_portmap.insert(1, "tcpmux");
     tcp_portmap.insert(2, "compressnet");

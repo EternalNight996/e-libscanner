@@ -498,7 +498,7 @@ impl MacAddr {
 }
 
 impl std::fmt::Display for MacAddr {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         let _ = write!(
             f,
             "{:<02x}:{:<02x}:{:<02x}:{:<02x}:{:<02x}:{:<02x}",

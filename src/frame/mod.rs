@@ -78,22 +78,22 @@ impl Destination {
 
 #[derive(Clone, Debug)]
 pub(crate) struct ScanSetting {
-    pub if_index: u32,
+    pub(crate) if_index: u32,
     #[allow(dead_code)]
-    pub src_mac: MacAddr,
+    pub(crate) src_mac: MacAddr,
     #[allow(dead_code)]
-    pub dst_mac: MacAddr,
-    pub src_ip: IpAddr,
-    pub src_port: u16,
-    pub destinations: Vec<Destination>,
-    pub ip_set: HashSet<IpAddr>,
-    pub timeout: Duration,
-    pub wait_time: Duration,
+    pub(crate) dst_mac: MacAddr,
+    pub(crate) src_ip: IpAddr,
+    pub(crate) src_port: u16,
+    pub(crate) destinations: Vec<Destination>,
+    pub(crate) ip_set: HashSet<IpAddr>,
+    pub(crate) timeout: Duration,
+    pub(crate) wait_time: Duration,
     #[allow(dead_code)]
-    pub send_rate: Duration,
-    pub scan_type: ScanType,
+    pub(crate) send_rate: Duration,
+    pub(crate) scan_type: ScanType,
     #[allow(dead_code)]
-    pub hosts_concurrency: usize,
+    pub(crate) hosts_concurrency: usize,
     #[allow(dead_code)]
-    pub ports_concurrency: usize,
+    pub(crate) ports_concurrency: usize,
 }

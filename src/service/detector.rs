@@ -6,7 +6,6 @@ use std::io::{prelude::*, BufReader, BufWriter};
 use std::net::{IpAddr, Ipv4Addr, SocketAddr, TcpStream};
 use std::sync::{Arc, Mutex};
 use std::time::Duration;
-
 /// Struct for service detection
 /// # Example
 /// ```

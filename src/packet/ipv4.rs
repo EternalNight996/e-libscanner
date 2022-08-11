@@ -7,7 +7,7 @@ use pnet_packet::ipv4::{MutableIpv4Packet, Ipv4Flags};
 pub const IPV4_HEADER_LEN: usize = 20;
 
 /// Build ipv4 packet
-pub fn build_ipv4_packet(ipv4_packet: &mut MutableIpv4Packet, src_ip: Ipv4Addr, dst_ip: Ipv4Addr, next_protocol: IpNextHeaderProtocol) {
+pub fn build_ipv4_packet(ipv4_packet: &mut MutableIpv4Packet<'_>, src_ip: Ipv4Addr, dst_ip: Ipv4Addr, next_protocol: IpNextHeaderProtocol) {
     ipv4_packet.set_header_length(69);
     ipv4_packet.set_total_length(52);
     ipv4_packet.set_source(src_ip);

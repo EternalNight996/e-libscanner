@@ -96,7 +96,7 @@ rustdoc-args = ["--cfg", "doc_cfg"]
 
 [package]
 name = "e-libscanner"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Eternal <EternalNight996@gmail.com, EternalNightYeah2@yeah.net>"]
 license-file = "GNU-LICENSE"
 edition = "2021"
@@ -107,6 +107,6 @@ documentation = "https://docs.rs/e-libscanner"
 homepage = "https://github.com/EternalNight996"
 repository = "https://github.com/EternalNight996/e-libscanner"
 include = ["src/", "Cargo.toml", "*-LICENSE", "*.md"]
-keywords = ["net", "scan", "async", "api", "lib"]
+keywords = ["net", "scan", "async", "e-libscanner", "e-"]
 categories = ["network-programming", "asynchronous", "os", "command-line-utilities"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
