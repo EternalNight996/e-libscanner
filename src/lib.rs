@@ -76,7 +76,7 @@
     while_true
 )]
 #![doc(test(attr(allow(unused_variables), deny(warnings))))]
-// #![cfg_attr(doc_cfg, feature(doc_cfg))]
+#![cfg_attr(doc_cfg, feature(doc_cfg))]
 // Rustc lints.
 #![deny(missing_docs, unused_imports)]
 
