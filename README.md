@@ -30,7 +30,7 @@
 # 📖 示例
 ```toml
 [dependencies]
-e-libscanner = { version = "^0.1.1", features = ["full"] }
+e-libscanner = { version = "0.1", features = ["full"] }
 ```
 - [异步主机扫描](examples/async_host_scan.rs)
 - [异步端口扫描](examples/async_port_scan.rs)

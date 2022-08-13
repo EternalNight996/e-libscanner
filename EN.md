@@ -30,7 +30,7 @@ This is a scan integration interface. The bottom layer is scanned by capturing p
 # 📖 Example
 ```toml
 [dependencies]
-e-libscanner = { version = "^0.1.1", features = ["full"] }
+e-libscanner = { version = "0.1", features = ["full"] }
 ```
 - [Async_host_scan](examples/async_host_scan.rs)
 - [Async_port_scan](examples/async_port_scan.rs)

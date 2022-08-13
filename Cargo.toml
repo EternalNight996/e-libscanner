@@ -96,7 +96,7 @@ rustdoc-args = ["--cfg", "doc_cfg"]
 
 [package]
 name = "e-libscanner"
-version = "0.1.7"
+version = "0.1.8"
 authors = ["Eternal <EternalNight996@gmail.com, EternalNightYeah2@yeah.net>"]
 license-file = "GNU-LICENSE"
 edition = "2021"
