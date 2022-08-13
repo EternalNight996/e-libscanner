@@ -29,7 +29,7 @@ serde = { version = "1.0", features = ["derive"] }
 serde_derive = "1.0.140"
 structopt = "0.3.26"
 ipnet = "2.5"
-e-utils = { version = "^0.1.18", features = [
+e-utils = { version = "^0.1.20", features = [
     "random",
     "dns",
     "traceroute",
