@@ -88,7 +88,7 @@ name = "tracert"
 path = "examples/tracert.rs"
 required-features = []
 
-# [package.metadata.docs.rs]
+[package.metadata.docs.rs]
 # To build locally:
 # RUSTDOCFLAGS="--cfg doc_cfg" cargo +nightly doc --all-features --no-deps --open
 all-features = true
@@ -96,7 +96,7 @@ rustdoc-args = ["--cfg", "doc_cfg"]
 
 [package]
 name = "e-libscanner"
-version = "0.1.6"
+version = "0.1.7"
 authors = ["Eternal <EternalNight996@gmail.com, EternalNightYeah2@yeah.net>"]
 license-file = "GNU-LICENSE"
 edition = "2021"
