@@ -1,5 +1,6 @@
 use std::mem;
 
+#[allow(dead_code)]
 #[inline]
 pub(crate) unsafe fn allocate(size: usize) -> *mut u8 {
     ptr_from_vec(Vec::with_capacity(size))
@@ -10,6 +11,8 @@ fn ptr_from_vec(mut buf: Vec<u8>) -> *mut u8 {
     mem::forget(buf);
     ptr
 }
+
+#[allow(dead_code)]
 #[inline]
 pub(crate) unsafe fn deallocate(ptr: *mut u8, old_size: usize) {
     Vec::from_raw_parts(ptr, 0, old_size);

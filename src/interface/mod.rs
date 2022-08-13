@@ -5,8 +5,12 @@ use std::net::{IpAddr, Ipv4Addr, Ipv6Addr, UdpSocket};
 mod win;
 #[cfg(target_os = "windows")]
 use win::get_interfaces;
-mod memalloc;
+#[cfg(any(target_os = "unix", target_os = "linux"))]
+mod unix;
+#[cfg(any(target_os = "unix", target_os = "linux"))]
+use unix::get_interfaces;
 
+mod memalloc;
 /// Structure of Network Interface information
 #[derive(Clone, Debug)]
 pub struct Interface {

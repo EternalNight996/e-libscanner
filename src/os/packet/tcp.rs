@@ -43,7 +43,7 @@ pub fn build_tcp_packet(tcp_packet:&mut MutableTcpPacket, src_ip: IpAddr, src_po
 }
 
 #[cfg(target_family="windows")]
-pub fn build_tcp_packet(tcp_packet:&mut MutableTcpPacket, src_ip: IpAddr, src_port:u16, dst_ip: IpAddr, dst_port:u16, probe_type: ProbeType) {
+pub(crate) fn build_tcp_packet(tcp_packet:&mut MutableTcpPacket<'_>, src_ip: IpAddr, src_port:u16, dst_ip: IpAddr, dst_port:u16, probe_type: ProbeType) {
     tcp_packet.set_source(src_port);
     tcp_packet.set_destination(dst_port);
     tcp_packet.set_window(64240);

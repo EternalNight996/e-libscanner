@@ -42,7 +42,7 @@ pub(crate) fn receive_packets(rx: &mut Box<dyn pnet_datalink::DataLinkReceiver>,
     }
 }
 
-fn ipv4_handler(ethernet: &pnet_packet::ethernet::EthernetPacket, probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
+fn ipv4_handler(ethernet: &pnet_packet::ethernet::EthernetPacket<'_>, probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
     if let Some(packet) = pnet_packet::ipv4::Ipv4Packet::new(ethernet.payload()){
         if IpAddr::V4(packet.get_source()) == probe_setting.probe_target.ip_addr {
             match packet.get_next_level_protocol() {
@@ -61,7 +61,7 @@ fn ipv4_handler(ethernet: &pnet_packet::ethernet::EthernetPacket, probe_setting:
     }
 }
 
-fn ipv6_handler(ethernet: &pnet_packet::ethernet::EthernetPacket, probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
+fn ipv6_handler(ethernet: &pnet_packet::ethernet::EthernetPacket<'_>, probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
     if let Some(packet) = pnet_packet::ipv6::Ipv6Packet::new(ethernet.payload()){
         if IpAddr::V6(packet.get_source()) == probe_setting.probe_target.ip_addr {
             match packet.get_next_header() {
@@ -80,7 +80,7 @@ fn ipv6_handler(ethernet: &pnet_packet::ethernet::EthernetPacket, probe_setting:
     }
 }
 
-fn tcp_handler_v4(packet: &pnet_packet::ipv4::Ipv4Packet, _probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
+fn tcp_handler_v4(packet: &pnet_packet::ipv4::Ipv4Packet<'_>, _probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
     let tcp_packet = pnet_packet::tcp::TcpPacket::new(packet.payload());
     if let Some(tcp_packet) = tcp_packet {
         let mut tcp_options: Vec<TcpOptionKind> = vec![];
@@ -138,7 +138,7 @@ fn tcp_handler_v4(packet: &pnet_packet::ipv4::Ipv4Packet, _probe_setting: &Probe
     }
 }
 
-fn tcp_handler_v6(packet: &pnet_packet::ipv6::Ipv6Packet, _probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
+fn tcp_handler_v6(packet: &pnet_packet::ipv6::Ipv6Packet<'_>, _probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
     let tcp_packet = pnet_packet::tcp::TcpPacket::new(packet.payload());
     if let Some(tcp_packet) = tcp_packet {
         let mut tcp_options: Vec<TcpOptionKind> = vec![];
@@ -196,21 +196,21 @@ fn tcp_handler_v6(packet: &pnet_packet::ipv6::Ipv6Packet, _probe_setting: &Probe
     }
 }
 
-fn udp_handler_v4(packet: &pnet_packet::ipv4::Ipv4Packet, probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
+fn udp_handler_v4(packet: &pnet_packet::ipv4::Ipv4Packet<'_>, probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
     let udp = pnet_packet::udp::UdpPacket::new(packet.payload());
     if let Some(udp) = udp {
         handle_udp_packet(udp, probe_setting, probe_result);
     }
 }
 
-fn udp_handler_v6(packet: &pnet_packet::ipv6::Ipv6Packet, probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
+fn udp_handler_v6(packet: &pnet_packet::ipv6::Ipv6Packet<'_>, probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
     let udp = pnet_packet::udp::UdpPacket::new(packet.payload());
     if let Some(udp) = udp {
         handle_udp_packet(udp, probe_setting, probe_result);
     }
 }
 
-fn icmp_handler_v4(packet: &pnet_packet::ipv4::Ipv4Packet, _probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
+fn icmp_handler_v4(packet: &pnet_packet::ipv4::Ipv4Packet<'_>, _probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
     let icmp_packet = pnet_packet::icmp::IcmpPacket::new(packet.payload());
     if let Some(icmp) = icmp_packet {
         match icmp.get_icmp_type() {
@@ -278,7 +278,7 @@ fn icmp_handler_v4(packet: &pnet_packet::ipv4::Ipv4Packet, _probe_setting: &Prob
     }
 }
 
-fn icmp_handler_v6(packet: &pnet_packet::ipv6::Ipv6Packet, _probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
+fn icmp_handler_v6(packet: &pnet_packet::ipv6::Ipv6Packet<'_>, _probe_setting: &ProbeSetting, probe_result: &Arc<Mutex<ProbeResult>>) {
     let icmp_packet = pnet_packet::icmpv6::Icmpv6Packet::new(packet.payload());
     if let Some(icmp) = icmp_packet {
         match icmp.get_icmpv6_type() {
@@ -321,6 +321,6 @@ fn icmp_handler_v6(packet: &pnet_packet::ipv6::Ipv6Packet, _probe_setting: &Prob
     }
 }
 
-fn handle_udp_packet(_udp_packet: pnet_packet::udp::UdpPacket, _probe_setting: &ProbeSetting, _probe_result: &Arc<Mutex<ProbeResult>>) {
+fn handle_udp_packet(_udp_packet: pnet_packet::udp::UdpPacket<'_>, _probe_setting: &ProbeSetting, _probe_result: &Arc<Mutex<ProbeResult>>) {
     
 }

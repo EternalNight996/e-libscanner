@@ -41,7 +41,7 @@ pub(crate) async fn receive_packets(
 }
 
 fn ipv4_handler(
-    ethernet: &pnet_packet::ethernet::EthernetPacket,
+    ethernet: &pnet_packet::ethernet::EthernetPacket<'_>,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
 ) {
@@ -62,7 +62,7 @@ fn ipv4_handler(
 }
 
 fn ipv6_handler(
-    ethernet: &pnet_packet::ethernet::EthernetPacket,
+    ethernet: &pnet_packet::ethernet::EthernetPacket<'_>,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
 ) {
@@ -83,7 +83,7 @@ fn ipv6_handler(
 }
 
 fn tcp_handler_v4(
-    packet: &pnet_packet::ipv4::Ipv4Packet,
+    packet: &pnet_packet::ipv4::Ipv4Packet<'_>,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
 ) {
@@ -98,7 +98,7 @@ fn tcp_handler_v4(
 }
 
 fn tcp_handler_v6(
-    packet: &pnet_packet::ipv6::Ipv6Packet,
+    packet: &pnet_packet::ipv6::Ipv6Packet<'_>,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
 ) {
@@ -113,7 +113,7 @@ fn tcp_handler_v6(
 }
 
 fn udp_handler_v4(
-    packet: &pnet_packet::ipv4::Ipv4Packet,
+    packet: &pnet_packet::ipv4::Ipv4Packet<'_>,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
 ) {
@@ -124,7 +124,7 @@ fn udp_handler_v4(
 }
 
 fn udp_handler_v6(
-    packet: &pnet_packet::ipv6::Ipv6Packet,
+    packet: &pnet_packet::ipv6::Ipv6Packet<'_>,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
 ) {
@@ -135,7 +135,7 @@ fn udp_handler_v6(
 }
 
 fn icmp_handler_v4(
-    packet: &pnet_packet::ipv4::Ipv4Packet,
+    packet: &pnet_packet::ipv4::Ipv4Packet<'_>,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
 ) {
@@ -164,7 +164,7 @@ fn icmp_handler_v4(
 }
 
 fn icmp_handler_v6(
-    packet: &pnet_packet::ipv6::Ipv6Packet,
+    packet: &pnet_packet::ipv6::Ipv6Packet<'_>,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
 ) {
@@ -193,7 +193,7 @@ fn icmp_handler_v6(
 }
 
 fn handle_tcp_packet(
-    tcp_packet: pnet_packet::tcp::TcpPacket,
+    tcp_packet: pnet_packet::tcp::TcpPacket<'_>,
     host_info: HostInfo,
     scan_setting: &ScanSetting,
     scan_result: &Arc<Mutex<ScanResults>>,
@@ -313,7 +313,7 @@ fn handle_tcp_packet(
 }
 
 fn handle_udp_packet(
-    _udp_packet: pnet_packet::udp::UdpPacket,
+    _udp_packet: pnet_packet::udp::UdpPacket<'_>,
     _scan_setting: &ScanSetting,
     _scan_result: &Arc<Mutex<ScanResults>>,
 ) {

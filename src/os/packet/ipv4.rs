@@ -2,19 +2,19 @@ use std::net::Ipv4Addr;
 use pnet_packet::ip::{IpNextHeaderProtocol, IpNextHeaderProtocols};
 use pnet_packet::ipv4::{MutableIpv4Packet, Ipv4Flags};
 
-pub const IPV4_HEADER_LEN: usize = 20;
-pub const IPV4_TOTAL_LEN: u16 = 52;
+pub(crate) const IPV4_HEADER_LEN: usize = 20;
+pub(crate) const IPV4_TOTAL_LEN: u16 = 52;
 
 #[cfg(not(target_family="windows"))]
-pub const IPV4_TOTAL_LEN_TCP: u16 = 64;
+pub(crate) const IPV4_TOTAL_LEN_TCP: u16 = 64;
 
 #[cfg(target_family="windows")]
-pub const IPV4_TOTAL_LEN_TCP: u16 = 52;
+pub(crate) const IPV4_TOTAL_LEN_TCP: u16 = 52;
 
-pub const IPV4_DEFAULT_ID: u16 = 4162;
-pub const IPV4_DEFAULT_TTL: u8 = 64;
+pub(crate) const IPV4_DEFAULT_ID: u16 = 4162;
+pub(crate) const IPV4_DEFAULT_TTL: u8 = 64;
 
-pub fn build_ipv4_packet(ipv4_packet: &mut MutableIpv4Packet, src_ip: Ipv4Addr, dst_ip: Ipv4Addr, next_protocol: IpNextHeaderProtocol) {
+pub(crate) fn build_ipv4_packet(ipv4_packet: &mut MutableIpv4Packet<'_>, src_ip: Ipv4Addr, dst_ip: Ipv4Addr, next_protocol: IpNextHeaderProtocol) {
     ipv4_packet.set_header_length(69);
     ipv4_packet.set_source(src_ip);
     ipv4_packet.set_destination(dst_ip);

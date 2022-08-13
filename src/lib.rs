@@ -53,7 +53,7 @@
 )]
 #![warn(
     missing_debug_implementations,
-    missing_doc_code_examples,
+    rustdoc::missing_doc_code_examples,
     missing_docs,
     rust_2018_idioms,
     unreachable_pub,
@@ -75,28 +75,28 @@
     while_true
 )]
 #![doc(test(attr(allow(unused_variables), deny(warnings))))]
-#![cfg_attr(docsrs, feature(docsrs))]
+#![cfg_attr(doc_cfg, feature(doc_cfg))]
 // Rustc lints.
 #![deny(missing_docs, unused_imports)]
 
 /// Async scan api
 #[cfg(feature = "async")]
-#[cfg_attr(docsrs, doc(cfg(feature = "async")))]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "async")))]
 pub mod async_scan;
 
 /// Sync scan api
 #[cfg(feature = "sync")]
-#[cfg_attr(docsrs, doc(cfg(feature = "sync")))]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "sync")))]
 pub mod sync_scan;
 
 /// Service scan api
 #[cfg(feature = "service")]
-#[cfg_attr(docsrs, doc(cfg(feature = "service")))]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "service")))]
 pub mod service;
 
 /// Os scan api
 #[cfg(feature = "os")]
-#[cfg_attr(docsrs, doc(cfg(feature = "os")))]
+#[cfg_attr(doc_cfg, doc(cfg(feature = "os")))]
 pub mod os;
 
 /// Static data model

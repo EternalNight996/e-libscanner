@@ -276,7 +276,7 @@ pub struct ScanServiceResult {
     pub ports: Vec<(u16, String)>,
 }
 impl fmt::Display for ScanServiceResult {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         // The `f` value implements the `Write` trait, which is what the
         // write! macro is expecting. Note that this formatting ignores the
         // various flags provided to format strings.
