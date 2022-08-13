@@ -1,3 +1,8 @@
+/// Host Scanner
+/// # Example
+/// ```
+/// fn main() -> Result<(), String> {
+/// #[cfg(feature = "sync")]
 mod scanner;
 mod receiver;
 

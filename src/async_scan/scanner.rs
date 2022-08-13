@@ -9,7 +9,7 @@ use std::sync::mpsc::{channel, Receiver, Sender};
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 
-/// Host Scanner
+/// Async Host Scanner
 /// # Example
 /// ```
 /// fn main() -> Result<(), String> {
